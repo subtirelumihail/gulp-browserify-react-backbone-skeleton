@@ -3,7 +3,11 @@ module.exports = function (gulp) {
 	
 	gulp.task('compass', function() {
 	 return  gulp.src(config.source.sass)
-	  .pipe(compass())
-	  .pipe(gulp.dest('src/css'));
+	  .pipe(compass({
+	    css: config.dest.defaults.css,
+	    sass: config.dest.defaults.sass,
+	    require: []
+	  }))
+	  .pipe(gulp.dest(config.dest.defaults.sass));
 	});
 };

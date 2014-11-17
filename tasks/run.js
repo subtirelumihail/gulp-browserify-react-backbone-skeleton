@@ -10,17 +10,17 @@ module.exports = function (gulp) {
 		    });
 		  }
 		};
-	
+
 	gulp.task('clean', ['clean-dev','clean-build']);
 
 	// Development task
-	gulp.task('dev', ['compass', 'styles-dev', 'jshint', 'scripts-dev', 'imagemin-dev', 'fonts'], function() {
+	gulp.task('dev', ['compass', 'styles-dev', 'jshint', 'scripts-dev', 'imagemin-dev', 'fonts-dev'], function() {
 	 	server.start();
 	    gulp.run('watch');
 	});
 
 	// Production task
-	gulp.task('prod',['compass', 'styles-prod', 'scripts-prod', 'imagemin-prod', 'fonts'], function() {
+	gulp.task('prod',['compass', 'styles-prod', 'scripts-prod', 'imagemin-prod', 'fonts-prod'], function() {
 	  server.start();
 	});
 };

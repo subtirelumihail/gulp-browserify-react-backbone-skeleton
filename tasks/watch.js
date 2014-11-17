@@ -15,7 +15,7 @@ module.exports = function (gulp) {
 		gulp.watch(config.source.img, ['imagemin-prod', browserSync.reload]);
 
 		// watch for FONT changes
-		gulp.watch(config.source.font, ['fonts', browserSync.reload]);
+		gulp.watch(config.source.font, ['fonts-dev', browserSync.reload]);
 
 		// watch for HTML changes
 		gulp.watch(config.source.html).on('change', function(file) {

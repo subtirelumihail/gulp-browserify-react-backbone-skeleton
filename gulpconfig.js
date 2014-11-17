@@ -1,18 +1,16 @@
 var builds = {
-		build : ['build'],
-		dev : ['assets']
+		build : 'build',
+		dev : 'assets'
 	};
 
 Config = {
 	bundles : {
-		js : ['bundle.js'],
-		template : ['templates.js']
+		js : 'bundle.js',
+		template : 'templates.js',
+		css : 'styles.css'
 	},
 
-	builds : {
-		build : ['build'],
-		dev : ['assets']
-	},
+	builds : builds,
 
 	source : {
 		html : ['*.html'],
@@ -21,25 +19,31 @@ Config = {
 		sass : ['libs/*.scss', 'src/sass/**/*.scss', 'src/sass/*.scss'],
 		css : ['libs/*.css', 'src/css/libs/*.css', 'src/css/**/*.css', 'src/css/*.css'],
 		font : ['src/fonts/*'],
+		jshint : ['src/js/*.js'],
 		templates : ['src/templates/**/*.jsx', 'src/templates/*.jsx']
 	},
 
 	dest : { 
+
+		defaults : {
+			css : 'src/css',
+			sass : 'src/sass'
+		},
 		
 		build : {
-			img : [builds.build+'/img'],
-			js : [builds.build+'/js/'],
-			css : [builds.build+'/css/'],
-			font : [builds.build+'/fonts/'],
-			templates : [builds.build+'/templates']
+			img : builds.build+'/img/',
+			js : builds.build+'/js/',
+			css : builds.build+'/css/',
+			font : builds.build+'/fonts/',
+			templates : builds.build+'/templates/'
 		},
 
 		dev : {
-			img : [builds.dev+'/img'],
-			js : [builds.dev+'/js/'],
-			css : [builds.dev+'/css/'],
-			font : [builds.dev+'/fonts/'],
-			templates : [builds.dev+'/templates']
+			img : builds.dev+'/img/',
+			js : builds.dev+'/js/',
+			css : builds.dev+'/css/',
+			font : builds.dev+'/fonts/',
+			templates : builds.dev+'/templates/'
 		}
 		
 	}
