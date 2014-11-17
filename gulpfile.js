@@ -1,5 +1,14 @@
+//Global config
+global.config = require('./gulpconfig');
+
 // include gulp
 var gulp = require('gulp'); 
+var requireDir = require('require-dir');
+var dir = requireDir('./tasks');
+
+for (var i in dir) {
+    dir[i](gulp);
+}
  
 // include plug-ins
 var jshint = require('gulp-jshint'),
@@ -11,11 +20,12 @@ var jshint = require('gulp-jshint'),
     autoprefix = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
     compass = require('gulp-compass'),
-    rimraf = require('gulp-rimraf'),
-    browserSync = require("browser-sync"),
+    
     wiredep = require('wiredep').stream,
     path = require('path');
 
+var reactify = require('reactify');
+var browserify = require('browserify');  
 
 //Sources
   var htmlSrc = 'assets/*.html',
@@ -30,8 +40,6 @@ var jshint = require('gulp-jshint'),
       fontDst  = './assets/fonts/';
 
   var compassSrc = ['libs/*.scss', 'src/sass/**/*.scss', 'src/sass/*.scss'];
-
-  var bowerDest = 'libs';
 
 /*Connecting BrowserSync ...*/
 var server = {
@@ -116,11 +124,6 @@ gulp.task('imagemin-dev', function() {
 ================================
 */
 
-// Deletes the assets folder
-gulp.task('clean', function(cb) {
-   return gulp.src('./assets')
-    .pipe(rimraf({ force: true }));
-});
 
 // CSS concat, auto-prefix and minify
 gulp.task('styles-prod', function() {
@@ -148,34 +151,3 @@ gulp.task('imagemin-prod', function() {
     .pipe(gulp.dest(imgDst));
 });
 
-
-
-// Development task
-gulp.task('dev', ['compass', 'styles-dev', 'jshint', 'scripts-dev', 'imagemin-dev', 'fonts'], function() {
-  server.start();
-
-    // watch for JS changes
-    gulp.watch(jsSrc, ['scripts-dev', 'jshint', browserSync.reload]);
-   
-    // watch for CSS changes
-    gulp.watch(cssSrc, ['styles-dev', browserSync.reload]);
-
-    // watch for SASS changes
-    gulp.watch(compassSrc, ['compass', browserSync.reload]);
-
-    // watch for IMAGES changes
-    gulp.watch(imgSrc, ['imagemin-prod', browserSync.reload]);
-
-    // watch for FONT changes
-    gulp.watch(fontSrc, ['fonts', browserSync.reload]);
-
-    // watch for HTML changes
-    gulp.watch(['*.html']).on('change', function(file) {
-        browserSync.reload();
-    });
-});
-
-// Production task
-gulp.task('prod',['compass', 'styles-prod', 'scripts-prod', 'imagemin-prod', 'fonts'], function() {
-  server.start();
-});
