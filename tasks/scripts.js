@@ -16,6 +16,6 @@ module.exports = function (gulp) {
 	    .pipe(concat(config.bundles.js))
 	    .pipe(stripDebug())
 	    .pipe(uglify())
-	    .pipe(gulp.dest(config.dest.build.img));
+	    .pipe(gulp.dest(config.dest.build.js));
 	});
 };
