@@ -1,8 +1,13 @@
-Simple web application skeleton
-==============
+##Nice to have
+*	ruby & rails
+*	bundler
+*	gulp
+*	bower
 
->A very simple web application skeleton with Gulp + BrowserSync + Compass
-
+```
+npm install -g bower gulp
+gem install bundler
+```
 
 ##How to install
 
@@ -11,15 +16,17 @@ Run this from the project root path
 ```
 sudo npm install
 
+bundler install
+
 bower install
 ```
 
 ## Usage
 
-To install a bower component
+To install bower files
 
 ```
-npm install --save plugin-name
+bower install --save plugin-name
 ```
 
 To get the bower files run:
@@ -31,17 +38,31 @@ gulp bower
 To set the <b>development</b> mode, run this in the current project root path
 
 ```
-gulp dev
+gulp
 ```
 
 To set the <b>production</b> mode, run this in the current project root path
 
 ```
-gulp prod
+gulp --production
 ```
 
-To <b>clean</b> the assets folder
+To <b>clean</b> the build folder
 
 ```
 gulp clean
+```
+
+###Server deployment
+
+To deploy on the server use:
+
+```
+npm run start
+```
+
+To dev on the server user
+
+```
+npm run dev
 ```

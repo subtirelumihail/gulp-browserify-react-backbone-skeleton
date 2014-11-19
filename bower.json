@@ -1,9 +1,8 @@
 {
-  "name": "web-app-simple-skeleton",
-  "version": "0.0.0",
-  "homepage": "https://github.com/subtirelumihail/web-app-simple",
+  "name": "grc-fe",
+  "version": "1.0.0",
   "authors": [
-    "Subtirelu Mihail <dazzzz2007@gmail.com>"
+    "Subtirelu Mihail <mihail.subtirelu@kalon.ro>"
   ],
   "license": "MIT",
   "ignore": [

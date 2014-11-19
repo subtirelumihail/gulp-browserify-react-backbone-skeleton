@@ -6,8 +6,8 @@ module.exports = function (gulp) {
 	  .pipe(compass({
 	    css: config.dest.defaults.css,
 	    sass: config.dest.defaults.sass,
-	    require: []
+	    require: ['susy']
 	  }))
-	  .pipe(gulp.dest(config.dest.defaults.sass));
+	  .pipe(gulp.dest(config.dest.defaults.css));
 	});
 };

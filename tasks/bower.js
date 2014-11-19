@@ -8,8 +8,8 @@ module.exports = function (gulp) {
 	var wiredep = require('wiredep').stream;
 	
 	gulp.task('bower', function () {
-	  gulp.src('./*.html')
+	  gulp.src(config.source.html)
 	    .pipe(wiredep())
-	    .pipe(gulp.dest('./'));
+	    .pipe(gulp.dest(config.dest.html));
 	});
 };

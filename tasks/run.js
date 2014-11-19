@@ -1,26 +1,21 @@
-module.exports = function (gulp) {
+module.exports = function (gulp, argv) {
 	var browserSync = require("browser-sync");
 
 	var server = {
 		  start: function(){
 		     browserSync({
 		        server: {
-		            baseDir: "./"
+		            baseDir: "./"+config.build+'/'
 		        }
 		    });
 		  }
 		};
 
-	gulp.task('clean', ['clean-dev','clean-build']);
-
 	// Development task
-	gulp.task('dev', ['compass', 'styles-dev', 'jshint', 'scripts-dev', 'imagemin-dev', 'fonts-dev'], function() {
-	 	server.start();
-	    gulp.run('watch');
-	});
-
-	// Production task
-	gulp.task('prod',['compass', 'styles-prod', 'scripts-prod', 'imagemin-prod', 'fonts-prod'], function() {
-	  server.start();
+	gulp.task('default', ['browserify', 'compass', 'styles', 'jshint', 'img', 'fonts', 'html'], function() {
+		if(!argv.production){
+			server.start();
+	    	gulp.run('watch');
+		}
 	});
 };
