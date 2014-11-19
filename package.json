@@ -1,11 +1,11 @@
 {
-  "name": "grc-fe",
+  "name": "gulp-browserify-react-skeleton",
   "version": "1.0.0",
-  "description": "GRC Frontend",
+  "description": "A simple skeleton made with gulp and uses browserify, react and browserSync",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:kalon/grc-fe.git"
+    "url": "git@github.com:subtirelumihail/gulp-browserify-react-backbone-skeleton.git"
   },
   "dependencies": {
     "backbone": "^1.1.2",
