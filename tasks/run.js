@@ -12,7 +12,7 @@ module.exports = function (gulp, argv) {
 		};
 
 	// Development task
-	gulp.task('default', ['browserify', 'compass', 'styles', 'jshint', 'img', 'fonts', 'html'], function() {
+	gulp.task('default', ['browserify', 'sass', 'jshint', 'img', 'fonts', 'html'], function() {
 		if(!argv.production){
 			server.start();
 	    	gulp.run('watch');

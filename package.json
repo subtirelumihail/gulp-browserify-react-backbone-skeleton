@@ -21,13 +21,11 @@
     "gulp-autoprefixer": "^1.0.1",
     "gulp-browserify": "^0.5.0",
     "gulp-changed": "^1.0.0",
-    "gulp-compass": "^2.0.1",
     "gulp-concat": "^2.4.1",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^1.2.1",
     "gulp-jshint": "^1.9.0",
-    "gulp-minify-css": "^0.3.11",
-    "gulp-rimraf": "^0.1.1",
+    "gulp-ruby-sass": "^0.7.1",
     "gulp-strip-debug": "^1.0.1",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",
@@ -44,7 +42,7 @@
     "bower-run": "node_modules/.bin/bower install",
     "gulp-build": "node_modules/.bin/gulp --production",
     "start": "npm run gulp-build",
-    "dev" : "node_modules/.bin/gulp"
+    "dev": "node_modules/.bin/gulp"
   },
   "author": "Subtirelu Mihail"
 }

@@ -4,12 +4,9 @@ module.exports = function (gulp, argv) {
 
 	gulp.task('watch', function () {
 		gulp.watch(config.source.js, ['browserify', 'jshint', browserSync.reload]);
-		
-		// watch for CSS changes
-		gulp.watch(config.source.css, ['styles-dev', browserSync.reload]);
 
 		// watch for SASS changes
-		gulp.watch(config.source.sass, ['compass', browserSync.reload]);
+		gulp.watch(config.source.sass, ['sass', browserSync.reload]);
 
 		// watch for IMAGES changes
 		gulp.watch(config.source.img, ['imagemin-prod', browserSync.reload]);
